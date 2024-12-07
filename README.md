@@ -13,23 +13,14 @@ The discount structure consists of **multiple steps**, each with:
 
 Each step is processed dynamically based on the provided thresholds.
 
-## Example
 
-For a price of **120,000,000 Toman**, it calculates discounts in steps as follows:
-
-1. **First Step (50 million)**: 5% capped at 1.5M.
-2. **Second Step (40 million)**: 3% capped at 1M.
-3. **Third Step (remaining)**: 1% capped at 200K.
-
-Total Discount = **2,700,000 Toman**.
-
----
 
 ## How to Use
 
 1. **Import the `DiscountPipe`**:
    {{value|discount}}
 
+---
 # Angular Project
 
 ## Features
