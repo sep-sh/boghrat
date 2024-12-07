@@ -18,7 +18,6 @@ export class ArticlesService {
 
   private setArticles(): void {
     this.apiService.getArticles().subscribe((articles: Article[]) => {
-      console.log('articles', articles)
       this.articles.set(articles)
 
 
