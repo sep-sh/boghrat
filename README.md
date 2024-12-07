@@ -1,63 +1,50 @@
-<<<<<<< HEAD
-# Boghrat
+# Discount Calculation Function
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
+This function applies tiered discounts to a given price, handling multiple steps dynamically. It is designed to be flexible and can handle any number of discount steps with different percentages, maximum, and minimum discount values.
 
-## Development server
+## Discount Structure
 
-To start a local development server, run:
+The discount structure consists of **multiple steps**, each with:
 
-```bash
-ng serve
-```
+- A **percentage** discount for a specific range of prices.
+- A **maximum** and **minimum** discount for each step.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Each step is processed dynamically based on the provided thresholds.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## How It Works
 
-```bash
-ng generate component component-name
-```
+- The function calculates the discount for each step in the price range.
+- **Each step can have its own percentage, max, and min values.**
+- The function applies the discounts sequentially, ensuring the total discount is within the defined range for each step.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## Example
 
-## Building
+For a price of **120,000,000 Toman**, it calculates discounts in steps as follows:
 
-To build the project run:
+1. **First Step (50 million)**: 5% capped at 1.5M.
+2. **Second Step (40 million)**: 3% capped at 1M.
+3. **Third Step (remaining)**: 1% capped at 200K.
 
-```bash
-ng build
-```
+Total Discount = **2,700,000 Toman**.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+## Code Overview
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- **`calculateStepDiscount`**: Calculates the discount for each dynamic step.
+- **`transform`**: Loops through each step, accumulating the total discount.
+- **Flexible for multiple steps**: The structure supports adding or modifying steps easily.
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
+## How to Use
 
-For end-to-end (e2e) testing, run:
+1. **Import the `DiscountPipe`**:
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-=======
-# boghrat
->>>>>>> 6b7e1af3e7b82f93e5851e7a1651c68c50f2b8ff
+   ```typescript
+   import { DiscountPipe } from './path/to/discount.pipe';
+   

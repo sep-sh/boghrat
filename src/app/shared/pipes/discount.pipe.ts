@@ -46,6 +46,6 @@ export class DiscountPipe implements PipeTransform {
             totalDiscount += this.calculateStepDiscount(remainingPrice, lastStep);
         }
 
-        return totalDiscount;
+        return totalDiscount
     }
 }
